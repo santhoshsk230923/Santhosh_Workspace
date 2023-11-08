@@ -1,0 +1,42 @@
+##Display unAuth url
+GET http://localhost:8081/api/auth/welcome
+
+
+### add new user to Db for JWT
+POST http://localhost:8080/api/auth/addNewUser
+{
+    "name":"Santhosh",
+    "password":"123",
+    "email":"santhoshsk@gmail.com",
+    "roles":"ROLE_USER"
+}
+
+### generate token
+POST http://localhost:8081/api/auth/generateToken
+Content-Type: application/json
+{
+    "username":"Santhosh",
+    "password":"123"
+}
+
+## to get swagger api doc
+http://localhost:8081/docs/swagger-ui/index.html
+
+### Query the Demo endpoint
+GET http://localhost:8081/api/auth/etl-jobs
+Authorization: Bearer {{auth-token}}
+
+POST http://localhost:8081/api/auth/etl-jobs
+
+GET http://localhost:8081/api/auth/etl-jobs/{id}
+
+DELETE http://localhost:8081/api/auth/etl-jobs/{id}
+
+PUT http://localhost:8081/api/auth/etl-jobs/{id}
+{
+  "id": 0,
+  "name": "string",
+  "startTime": "2023-11-08T08:52:22.980Z",
+  "duration": 0,
+  "lastSuccessfulRun": "2023-11-08T08:52:22.980Z"
+}
